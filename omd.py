@@ -5,7 +5,7 @@ def get_answer():
     '''
     Function that asks for answer from stdin
     '''
-    answer = ''
+    answer = input()
     while '1' not in answer and '2' not in answer:
         print('Я не понял, повторите ответ, пожалуйста')
         answer = input()
