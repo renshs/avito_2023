@@ -1,2 +1,2 @@
 # OMD 
-## first home work
+## first homework
