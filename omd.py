@@ -1,6 +1,5 @@
 # Guido van Rossum <guido@python.org>
 
-
 def get_answer():
     '''
     Function that asks for answer from stdin
