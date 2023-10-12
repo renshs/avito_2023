@@ -42,7 +42,7 @@ class CountVectorizer:
     @staticmethod
     def clear_string(string: str) -> str:
         """
-        Clears string
+        Clears string.
         """
         return " ".join(
             [
