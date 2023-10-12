@@ -49,7 +49,7 @@ class CountVectorizer:
                 "".join([char for char in word if char.isalpha()])
                 for word in string.split()
             ]
-        )
+        ).lower()
 
 
 if __name__ == "__main__":
