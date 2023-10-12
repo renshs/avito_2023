@@ -1,5 +1,6 @@
 import pprint
 import csv
+from typing import Dict
 
 
 FILENAME_READ = 'task_2//Corp_Summary.csv'
@@ -8,9 +9,7 @@ FILENAME_WRITE = 'task_2//report.csv'
 
 def get_file(name: str = FILENAME_READ):
     with open(name, 'r') as data:
-        data = csv.DictReader(data, delimiter=';')
-        data = list(data)
-        return data
+        return list(csv.DictReader(data, delimiter=';'))
 
 
 def show_hierarchy() -> None:
@@ -19,7 +18,7 @@ def show_hierarchy() -> None:
     """
 
     data = get_file()
-    departaments = {}
+    departaments: Dict = {}
     for person in data:
         if person['Департамент'] in departaments:
             if person['Отдел'] not in departaments[person['Департамент']]:
@@ -29,28 +28,35 @@ def show_hierarchy() -> None:
     pprint.pprint(departaments)
 
 
-def create_report() -> dict():
+def create_report() -> dict:
     """
     This function creates dict with report about departaments
     """
 
     data = get_file()
-    departaments = {}
+    departaments: Dict = {}
     for person in data:
         if person['Департамент'] in departaments:
             departaments[person['Департамент']]['Численность'] += 1
             departaments[person['Департамент']
                          ]['Зарплатный фонд'] += int(person['Оклад'])
-            departaments[person['Департамент']]['Средняя зарплата'] = departaments[person['Департамент']
-                                                                                   ]['Зарплатный фонд'] / departaments[person['Департамент']]['Численность']
-            if int(person['Оклад']) < departaments[person['Департамент']]['Минимальная зарплата']:
+            departaments[person['Департамент']][
+                'Средняя зарплата'] = departaments[
+                person['Департамент']
+            ]['Зарплатный фонд'] / departaments[person[
+                'Департамент']]['Численность']
+            if int(person['Оклад']) < departaments[person[
+                    'Департамент']]['Минимальная зарплата']:
                 departaments[person['Департамент']
                              ]['Минимальная зарплата'] = int(person['Оклад'])
-            if int(person['Оклад']) > departaments[person['Департамент']]['Максимальная зарплата']:
-                departaments[person['Департамент']]['Максимальная зарплата'] = int(
-                    person['Оклад'])
-            departaments[person['Департамент']]['Вилка'] = (departaments[person['Департамент']
-                                                                         ]['Максимальная зарплата'], departaments[person['Департамент']]['Минимальная зарплата'])
+            if int(person['Оклад']) > departaments[person[
+                    'Департамент']]['Максимальная зарплата']:
+                departaments[person['Департамент']][
+                    'Максимальная зарплата'] = int(person['Оклад'])
+            departaments[person['Департамент']]['Вилка'] = (
+                departaments[person['Департамент']][
+                    'Максимальная зарплата'], departaments[
+                        person['Департамент']]['Минимальная зарплата'])
         if person['Департамент'] not in departaments:
             departaments[person['Департамент']] = {}
             departaments[person['Департамент']]['Численность'] = 1
@@ -88,7 +94,8 @@ def create_report_csv() -> None:
             current_departament['Департамент'] = departament
             for chararacteristic in dict_report[departament]:
                 if chararacteristic != 'Зарплатный фонд':
-                    current_departament[chararacteristic] = dict_report[departament][chararacteristic]
+                    current_departament[chararacteristic] = dict_report[
+                        departament][chararacteristic]
             pretty_csv.append(current_departament)
         keys = pretty_csv[0].keys()
         report = csv.DictWriter(data, keys)
