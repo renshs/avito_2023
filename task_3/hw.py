@@ -4,7 +4,7 @@ from collections.abc import Iterable
 
 class CountVectorizer:
     def __init__(self) -> None:
-        self.vocabulary: Dict[str: int] = {}
+        self.vocabulary: Dict[str, int] = {}
 
     def fit_transform(self, data: list) -> List[list]:
         """
