@@ -1,10 +1,10 @@
-from typing import List
+from typing import List, Dict
 from collections.abc import Iterable
 
 
 class CountVectorizer:
     def __init__(self) -> None:
-        self.vocabulary = {}
+        self.vocabulary: Dict[str, int] = {}
 
     def fit_transform(self, data: list) -> List[list]:
         """
@@ -42,7 +42,7 @@ class CountVectorizer:
     @staticmethod
     def clear_string(string: str) -> str:
         """
-        Clears string
+        Clears string.
         """
         return " ".join(
             [
