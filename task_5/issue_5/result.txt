@@ -1,0 +1,25 @@
+Команда:
+
+python3 -m unittest -v test.py
+
+
+Результат:
+
+test_dd_format (test.TestYear) ... ok
+test_exception (test.TestYear) ... ok
+test_yyyy_format (test.TestYear) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.003s
+
+OK
+
+
+Покрытие:
+
+Name      Stmts   Miss  Cover
+-----------------------------
+main.py      19      0   100%
+test.py      18      0   100%
+-----------------------------
+TOTAL        37      0   100%

@@ -1,0 +1,16 @@
+Команда:
+python3 -m unittest -v teset.py
+
+Результат:
+
+test_empty_list (teset.TestFitTransform) ... ok
+test_exception (teset.TestFitTransform) ... ok
+test_four_cities (teset.TestFitTransform) ... ok
+test_length (teset.TestFitTransform) ... [True, True, True, True]
+ok
+test_sum (teset.TestFitTransform) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK
