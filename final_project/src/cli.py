@@ -2,7 +2,7 @@ import click
 import constants
 
 
-@click.group
+@click.group()
 def cli():
     pass
 
@@ -26,6 +26,7 @@ def cook(pizza, size):
     """
     if pizza not in constants.PIZZAS.keys():
         print("We don't have these pizza yet")
+        return
     constants.PIZZAS[pizza](size).cook()
 
 
