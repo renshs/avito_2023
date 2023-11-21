@@ -10,7 +10,7 @@ This represents the culmination of the AAA Python course, where I endeavored to 
     $ cd final_project/
     $ python3 -m venv venv
     $ source venv/bin/activate
-    $ pip install requirements.txt
+    $ pip install -r requirements.txt
 ```
 
 ## running
