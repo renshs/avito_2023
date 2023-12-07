@@ -1,0 +1,43 @@
+Команда:
+python3 -m pytest -v main.py
+
+
+Результат:
+
+============================================ test session starts =============================================
+platform linux -- Python 3.10.12, pytest-7.4.3, pluggy-1.3.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/kamil/proga/avito_2023/task_5/issue_2
+plugins: anyio-3.6.2
+collected 4 items                                                                                            
+
+main.py::test_decode[-- .. .--. --MIPT] PASSED                                                         [ 25%]
+main.py::test_decode[.-.. ---   .-..-LOL] PASSED                                                       [ 50%]
+main.py::test_decode[... --- ...-SOS] PASSED                                                           [ 75%]
+main.py::test_decode[..   .-.. --- ...- .   -.-- --- ..--I LOVE YOU] FAILED                            [100%]
+
+================================================== FAILURES ==================================================
+________________________ test_decode[..   .-.. --- ...- .   -.-- --- ..--I LOVE YOU] _________________________
+
+test_input = '..   .-.. --- ...- .   -.-- --- ..-', expected = 'I LOVE YOU'
+
+    @pytest.mark.parametrize(
+        "test_input, expected",
+        [
+            ("-- .. .--. -", "MIPT"),
+            (".-.. ---   .-..", "LOL"),
+            ("... --- ...", "SOS"),
+            ("..   .-.. --- ...- .   -.-- --- ..-", "I LOVE YOU"),
+        ],
+    )
+    def test_decode(test_input, expected):
+>       assert decode(test_input) == expected
+E       AssertionError: assert 'ILOVEYOU' == 'I LOVE YOU'
+E         - I LOVE YOU
+E         ?  -    -
+E         + ILOVEYOU
+
+main.py:74: AssertionError
+========================================== short test summary info ===========================================
+FAILED main.py::test_decode[..   .-.. --- ...- .   -.-- --- ..--I LOVE YOU] - AssertionError: assert 'ILOVEYOU' == 'I LOVE YOU'
+======================================== 1 failed, 3 passed in 0.08s =========================================
